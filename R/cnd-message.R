@@ -217,9 +217,6 @@ str_restore <- function(x, to) {
   to[[1]] <- x
   to
 }
-cli_escape <- function(x) {
-  gsub("\\}", "}}", gsub("\\{", "{{", x))
-}
 
 use_cli_format <- function(env) {
   # Internal option to disable cli in case of recursive errors
