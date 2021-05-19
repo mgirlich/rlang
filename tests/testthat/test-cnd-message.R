@@ -153,3 +153,12 @@ test_that("cli syntax is escaped in 'try' mode", {
   x <- "{foo {{}}"
   expect_equal(rlang_format_message(x), x)
 })
+
+
+skip_if_not_installed("cli")
+
+cli::test_that_cli("format_error_bullets() generates bullets", {
+  expect_snapshot({
+    format_error_bullets(c("Header.", i = "Bullet."))
+  })
+})
