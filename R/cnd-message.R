@@ -180,11 +180,9 @@ rlang_format <- function(x, env, partial_format, cli_format) {
 }
 
 # No-op for the empty string, e.g. for `abort("", class = "foo")` and
-# a `conditionMessage.foo()` method. Don't format inputs escaped with
-# `I()`. Finally, don't format inputs containing newlines so that
-# formatting functions are idempotent.
+# a `conditionMessage.foo()` method. Don't format inputs escaped with `I()`.
 can_format <- function(x) {
-  !is_string(x, "") && !inherits(x, "AsIs") && !any(grepl("\n", x))
+  !is_string(x, "") && !inherits(x, "AsIs")
 }
 
 use_cli_format <- function(env) {
